@@ -1,0 +1,17 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer  mode="side" opened>
+
+      <h2 id="nav-title">Escuela Hogwarts</h2>
+      <button class="nav-button" routerLink="/houses" mat-button>Casas</button>
+      <button class="nav-button" routerLink="/students" mat-button>Estudiantes</button>
+      <button class="nav-button" routerLink="/teachers" mat-button>Profesores</button>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

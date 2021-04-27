@@ -1,0 +1,54 @@
+
+
+<div class="select-container">
+<mat-form-field>
+    <mat-label>Selecciona una Casa</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="slytherin">Slytherin</mat-option>
+      <mat-option value="gryffindor">Gryffindor</mat-option>
+      <mat-option value="ravenclaw ">Ravenclaw</mat-option>
+      <mat-option value="hufflepuff ">Hufflepuff</mat-option>
+    </mat-select>
+</mat-form-field>
+  <p>You selected: {{selected}}</p>
+
+</div>
+
+
+<div class="table-container">   
+
+    
+    <input id="table-input" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+          
+</div>
