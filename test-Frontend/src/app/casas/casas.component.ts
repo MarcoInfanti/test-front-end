@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
-import {GetListCharacterService} from '../get-list-character.service'
-import {characterReport} from '../characterReport'
+import { MatSelectChange, MatTableDataSource } from '@angular/material';
+import {GetListCharacterService} from '../get-list-character.service';
+import {characterReport} from '../characterReport';
 
 @Component({
   selector: 'app-casas',
@@ -10,13 +10,16 @@ import {characterReport} from '../characterReport'
 })
 
 export class CasasComponent implements OnInit {
-  
+
+  selectedValue ='';
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'age' , 'image'];
   dataSource = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
-  
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    
+
   }
 
   constructor(private service: GetListCharacterService) { }
@@ -27,11 +30,17 @@ export class CasasComponent implements OnInit {
     console.log(this.dataSource)
   }
 
+    getChangeRatio(event: MatSelectChange) {
+
+    this.selectedValue = event.value;
+    console.log(this.selectedValue);
+
+  }
+  
   ngOnInit() {
 
     this.getAllCharacter();
-
   }
 
-  
+
 }

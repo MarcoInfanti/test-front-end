@@ -3,11 +3,11 @@
 <div class="select-container">
 <mat-form-field>
     <mat-label>Selecciona una Casa</mat-label>
-    <mat-select [(value)]="selected">
+    <mat-select [(value)]="selected" (selectionChange)=getChangeRatio($event)> 
       <mat-option value="slytherin">Slytherin</mat-option>
       <mat-option value="gryffindor">Gryffindor</mat-option>
       <mat-option value="ravenclaw ">Ravenclaw</mat-option>
-      <mat-option value="hufflepuff ">Hufflepuff</mat-option>
+      <mat-option value="hufflepuff">Hufflepuff</mat-option>
     </mat-select>
 </mat-form-field>
   <p>You selected: {{selected}}</p>
