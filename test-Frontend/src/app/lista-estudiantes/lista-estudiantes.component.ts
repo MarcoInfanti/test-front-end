@@ -39,35 +39,7 @@ export class ListaEstudiantesComponent implements OnInit {
 
   }
 
-  public calculateAge(date, year){
 
-     if (date) {
-
-
-      var newdate = date.split("-").reverse().join("-");
-      newdate = new Date(newdate)
-
-      console.log(newdate)
-      var timeDiff = Math.abs(Date.now() - newdate);
-    
-      this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
-      return this.age
-
-        } else if (year) {
-
-         var currentYear = new Date().getFullYear()
-         console.log(currentYear - year)
-         return currentYear - year
-
-
-        } else {
-
-          return "-"
-
-        }
-      
-
-  }
 
   constructor(private service: GetListStudentsService) { }
 

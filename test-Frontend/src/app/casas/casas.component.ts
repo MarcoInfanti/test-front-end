@@ -3,7 +3,6 @@ import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@an
 import {GetListCharacterService} from '../get-list-character.service';
 import {characterReport} from '../characterReport';
 import { getActiveOffset } from '@angular/material/datepicker/typings/multi-year-view';
-import { copyFileSync } from 'fs';
 import { DataSource } from '@angular/cdk/collections';
 
 @Component({
@@ -43,36 +42,7 @@ export class CasasComponent implements OnInit {
 
   }
 
-  public calculateAge(date, year){
-
-     if (date) {
-
-
-      var newdate = date.split("-").reverse().join("-");
-      newdate = new Date(newdate)
-
-      console.log(newdate)
-      var timeDiff = Math.abs(Date.now() - newdate);
-    
-      this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
-      return this.age
-
-        } else if (year) {
-
-         var currentYear = new Date().getFullYear()
-         console.log(currentYear - year)
-         return currentYear - year
-
-
-        } else {
-
-          return "-"
-
-        }
-      
-
-  }
-
+ 
   constructor(private service: GetListCharacterService) { }
 
   public getAllCharacter(value){
