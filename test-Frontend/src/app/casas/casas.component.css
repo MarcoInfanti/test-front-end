@@ -12,6 +12,9 @@
 table {
     width: 100%;
     border-width: 0px;
+    align-items: center;
+    justify-items: center;
+   
   }
 
 #table-input{
@@ -29,4 +32,17 @@ table {
 
     margin: auto 2rem auto 2rem;
 
+}
+
+#image-table {
+
+    height: 10vh;
+    border-radius: 50%;
+    margin: auto 1rem auto 1rem;
+}
+
+
+table tr {
+
+ text-align: left;
 }
