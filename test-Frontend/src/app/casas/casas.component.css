@@ -1,6 +1,6 @@
 .select-container{
 
-    margin: 8rem 0 5rem 0;
+    margin: 2rem 0 5rem 0;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,8 @@ table {
 
 .table-container{
 
-    margin: auto 2rem auto 2rem;
+    margin: auto 16rem auto 16rem;
+    height: 20vh ;
 
 }
 
@@ -38,11 +39,12 @@ table {
 
     height: 10vh;
     border-radius: 50%;
-    margin: auto 1rem auto 1rem;
+    margin: auto 0 auto 0;
 }
 
 
-table tr {
+table tr, table td{
 
  text-align: left;
+ padding-right: 0;
 }

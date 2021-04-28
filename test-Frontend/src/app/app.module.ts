@@ -9,6 +9,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {HttpClientModule} from '@angular/common/http';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 
@@ -28,7 +31,10 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatSelectModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
+    MatSortModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

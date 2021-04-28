@@ -11,13 +11,13 @@ export class GetListCharacterService {
 
   constructor(private http:HttpClient) { }
   
-  url :string = "http://hp-api.herokuapp.com/api/characters/house/{{selected}}"
+  url :string = "http://hp-api.herokuapp.com/api/characters/house/"
 
   
 
-  public getCharacters(){
+  public getCharacters(house){
 
-    return this.http.get<characterReport[]>(this.url)
+    return this.http.get<characterReport[]>(this.url+house)
 
   }
 

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSelectChange, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
 import {GetListCharacterService} from '../get-list-character.service';
 import {characterReport} from '../characterReport';
+import { getActiveOffset } from '@angular/material/datepicker/typings/multi-year-view';
+import { copyFileSync } from 'fs';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-casas',
@@ -12,9 +15,14 @@ import {characterReport} from '../characterReport';
 export class CasasComponent implements OnInit {
 
   selectedValue ='';
+  age=0;
   ELEMENT_DATA : any[] = [];
-  displayedColumns: string[] = ['name','patronus', 'age' , 'image'];
+  displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
   dataSource = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
+
+
+  @ViewChild(MatSort , {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -22,25 +30,80 @@ export class CasasComponent implements OnInit {
 
   }
 
+  getPatronus(patronus){
+
+    if (patronus == "") {
+
+    return "-"
+  } else {
+
+
+    return patronus
+  }
+
+  }
+
+  public calculateAge(date, year){
+
+     if (date) {
+
+
+      var newdate = date.split("-").reverse().join("-");
+      newdate = new Date(newdate)
+
+      console.log(newdate)
+      var timeDiff = Math.abs(Date.now() - newdate);
+    
+      this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+      return this.age
+
+        } else if (year) {
+
+         var currentYear = new Date().getFullYear()
+         console.log(currentYear - year)
+         return currentYear - year
+
+
+        } else {
+
+          return "-"
+
+        }
+      
+
+  }
+
   constructor(private service: GetListCharacterService) { }
 
-  public getAllCharacter(){
-    let response = this.service.getCharacters();
+  public getAllCharacter(value){
+    
+    
+    let response = this.service.getCharacters(value);
     response.subscribe(report=>this.dataSource.data=report as characterReport[])
     console.log(this.dataSource)
   }
 
-    getChangeRatio(event: MatSelectChange) {
+    getChangeHouse(event: MatSelectChange) {
 
     this.selectedValue = event.value;
     console.log(this.selectedValue);
+    this.getAllCharacter(this.selectedValue);
 
   }
   
   ngOnInit() {
 
-    this.getAllCharacter();
+    this.getAllCharacter('slytherin');
+
   }
 
+  
+  ngAfterViewInit() {
 
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+  }
+
+  
 }
