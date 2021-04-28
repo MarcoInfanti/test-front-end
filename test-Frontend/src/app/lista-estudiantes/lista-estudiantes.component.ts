@@ -9,14 +9,14 @@ import {characterReport} from '../characterReport';
   styleUrls: ['./lista-estudiantes.component.css']
 })
 export class ListaEstudiantesComponent implements OnInit {
-
+    //inicialización de variables
   selectedValue ='';
   age=0;
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
   dataSourceStudents = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
 
-
+  //filtro y paginación
   @ViewChild(MatSort , {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
@@ -25,6 +25,7 @@ export class ListaEstudiantesComponent implements OnInit {
     
 
   }
+    //Setea con un "-" en la tabla los campos que no tienen valor en la columna patronus
 
   getPatronus(patronus){
 
@@ -40,9 +41,10 @@ export class ListaEstudiantesComponent implements OnInit {
   }
 
 
-
+  //Servicio
   constructor(private service: GetListStudentsService) { }
 
+  //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
   public getAllStudents(){
     
     
@@ -52,7 +54,7 @@ export class ListaEstudiantesComponent implements OnInit {
   }
 
  
-  
+
   ngOnInit() {
 
     this.getAllStudents();

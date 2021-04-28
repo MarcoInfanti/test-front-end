@@ -8,6 +8,7 @@ import { characterReport } from './characterReport';
 })
 export class GetListTeachersService {
 
+  // metodo que consulta el staff
   constructor(private http:HttpClient) { }
   
   url :string = "http://hp-api.herokuapp.com/api/characters/staff"

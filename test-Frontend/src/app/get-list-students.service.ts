@@ -9,10 +9,12 @@ export class GetListStudentsService {
 
 
   constructor(private http:HttpClient) { }
-  
+
+  //metodo que consulta los estudiantes
+
   url :string = "http://hp-api.herokuapp.com/api/characters/students"
 
-  
+  //Metodo que realiza la consulta
 
   public getStudents(){
 

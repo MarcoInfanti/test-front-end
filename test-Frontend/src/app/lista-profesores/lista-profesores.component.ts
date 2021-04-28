@@ -9,6 +9,7 @@ import {characterReport} from '../characterReport';
   styleUrls: ['./lista-profesores.component.css']
 })
 export class ListaProfesoresComponent implements OnInit {
+  //inicialización de variables
 
   selectedValue ='';
   age=0;
@@ -16,7 +17,7 @@ export class ListaProfesoresComponent implements OnInit {
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
   dataSourceTeacher = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
 
-
+  //filtro y paginación
   @ViewChild(MatSort , {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
@@ -25,6 +26,7 @@ export class ListaProfesoresComponent implements OnInit {
     
 
   }
+    //Setea con un "-" en la tabla los campos que no tienen valor en la columna patronus
 
   getPatronus(patronus){
 
@@ -39,8 +41,11 @@ export class ListaProfesoresComponent implements OnInit {
 
   }
 
+     //Servicio
 
   constructor(private service: GetListTeachersService) { }
+
+    //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
 
   public getAllTeachers(){
     
@@ -53,7 +58,7 @@ export class ListaProfesoresComponent implements OnInit {
  
   
   ngOnInit() {
-
+    
     this.getAllTeachers();
 
   }
