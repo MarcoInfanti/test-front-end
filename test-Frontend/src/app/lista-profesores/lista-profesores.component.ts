@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
-import {GetListTeachersService} from '../get-list-teachers.service';
+import {GetListService} from '../get-list-character.service';
 import {characterReport} from '../characterReport';
 
 @Component({
@@ -43,14 +43,14 @@ export class ListaProfesoresComponent implements OnInit {
 
      //Servicio
 
-  constructor(private service: GetListTeachersService) { }
+  constructor(private service: GetListService) { }
 
     //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
 
-  public getAllTeachers(){
+  public getAllTeachers(value){
     
     
-    let response = this.service.getTeachers();
+    let response = this.service.getCharacters(value);
     response.subscribe(report=>this.dataSourceTeacher.data=report as characterReport[])
     console.log(this.dataSourceTeacher)
   }
@@ -59,7 +59,7 @@ export class ListaProfesoresComponent implements OnInit {
   
   ngOnInit() {
     
-    this.getAllTeachers();
+    this.getAllTeachers("/staff");
 
   }
 

@@ -7,11 +7,11 @@ import { characterReport } from './characterReport';
 })
 
 //Servicio API 
-export class GetListCharacterService {
+export class GetListService {
 
   constructor(private http:HttpClient) { }
   
-  url :string = "http://hp-api.herokuapp.com/api/characters/house/"
+  url :string = "http://hp-api.herokuapp.com/api/characters"
 
   
   //metodo que recibe como parametro la casa "House" para realizar la consulta 

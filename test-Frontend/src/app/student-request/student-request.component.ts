@@ -17,33 +17,37 @@ export class StudentRequestComponent implements OnInit {
 
   StudentForm = this.formBuilder.group({
 
-    name: ['', Validators.required],
-    species: ['', Validators.required],
-    gender: ['', Validators.required],
-    house: [''],
-    dateOfBirth: ['',Validators.required],
-    yearOfBirth:['', Validators.required],
-    ancestry: ['',Validators.required],
-    eyeColour: ['', Validators.required],
-    hairColour: ['',Validators.required],
-    wood: ['',Validators.required],
-    core: ['', Validators.required],
-    length: [''],
-    patronus: ['', Validators.required],
-    actor: ['', Validators.required],
-    alive: [''],
-    image: ['', Validators.required],
+    name : new FormControl(null, Validators.compose([ Validators.minLength(3), Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    species: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    gender: new FormControl(null, Validators.required),
+    house: new FormControl(null, Validators.required),
+    dateOfBirth: new FormControl(null, Validators.required),
+    yearOfBirth:new FormControl(null,Validators.compose([ Validators.minLength(4), Validators.maxLength(4), Validators.pattern("^[0-9]*$")])),
+    ancestry:new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')]) ),
+    eyeColour: new FormControl(null, Validators.required),
+    hairColour: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    wood: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    core: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    hogwartsStudent: [false],
+    length: new FormControl(null, Validators.compose([Validators.required, Validators.pattern("^[0-9]*$")])),
+    patronus: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    actor: new FormControl(null, Validators.compose([Validators.required, Validators.pattern('[a-zA-Z ]*')])),
+    alive: [true],
+    image: new FormControl(null, Validators.required),
     
   })
 
   SaveForm(){
 
-    console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
+    //console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
+   
+
+      sessionStorage.setItem( "", JSON.stringify(this.StudentForm.value));
 
   }
 
 
- //
+ //permite la previsualizacion de la imagen
  public preview(files) {
   if (files.length === 0)
     return;
@@ -63,7 +67,32 @@ export class StudentRequestComponent implements OnInit {
 }
   
 
-  ngOnInit(){
+
+createStudent(){
+
+        var newStudent = new Object();
+        newStudent =  this.StudentForm.value
+        let student = []
+
+
+        if(sessionStorage.student)
+        {
+         student= JSON.parse(sessionStorage.getItem('student'));
+        }else{
+         student=[];
+        }
+        console.log(student);
+        student.push(newStudent)   
+        sessionStorage.setItem('student', JSON.stringify(student));
+        var retrievedObject = sessionStorage.getItem('student');
+        console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    
+}
+
+
+
+
+ ngOnInit(){
 
 
   }

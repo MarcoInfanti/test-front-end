@@ -5,13 +5,11 @@
     <mat-form-field appearance="legacy">
         <mat-label>Name</mat-label>
         <input formControlName="name" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Species</mat-label>
         <input formControlName="species" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field>
@@ -41,73 +39,53 @@
     <mat-form-field appearance="legacy">
         <mat-label>Year</mat-label>
         <input formControlName="yearOfBirth" matInput placeholder="Year of birth" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Ancestry</mat-label>
         <input formControlName="ancestry" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>eye Colour</mat-label>
         <input formControlName="eyeColour" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Hair Colour</mat-label>
         <input formControlName="hairColour" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Wood</mat-label>
         <input formControlName="wood" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Core</mat-label>
         <input formControlName="core" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Length</mat-label>
         <input formControlName="length" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Patronus</mat-label>
         <input formControlName="patronus" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Actor</mat-label>
         <input formControlName="actor" matInput placeholder="Placeholder" id="form-input">
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
-
-    <div id="radio-container">
-        
-        <mat-radio-group formControlName="alive">
-            <label id="radio-label">Alive: </label>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="fals">No</mat-radio-button>
-        </mat-radio-group>
-    </div>
-
     
-    <span style="color:red;" *ngIf="message">{{message}}</span>
-    <input #file type="file" accept='image/*' (change)="preview(file.files)"formControlName="image" />
-    <img [src]="imgURL" height="200" *ngIf="imgURL">
+    <input id="upload-photo" #file type="file" accept='image/*' (change)="preview(file.files)" formControlName="image" />
+    <img  [src]="imgURL" *ngIf="imgURL">
 
 
-        <button (click)="SaveForm()" mat-raised-button color="primary" id="submit-button"> Save </button>
+        <button [disabled]="StudentForm.invalid" (click)="createStudent()"  mat-raised-button color="primary" id="submit-button"> Save </button>
 
 </form>
 </mat-card>

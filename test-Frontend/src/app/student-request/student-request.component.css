@@ -30,17 +30,19 @@ align-items: center;
 
 #submit-button {
 
+position: absolute;
 width: 7vw;
 height: 5vh;
+top: 50vh;
+left:60vw;
 
 }
 
 
-mat-radio-group {
+img, #upload-photo {
 
-    
-    display: flex;
-    flex-direction: column;
-    margin: 1rem auto auto 2rem;
-    
+    position: relative;
+    width: 100%;
+    left: 5vw;
+
 }

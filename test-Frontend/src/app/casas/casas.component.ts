@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
-import {GetListCharacterService} from '../get-list-character.service';
+import {GetListService} from '../get-list-character.service';
 import {characterReport} from '../characterReport';
 import { getActiveOffset } from '@angular/material/datepicker/typings/multi-year-view';
 import { DataSource } from '@angular/cdk/collections';
@@ -47,7 +47,7 @@ export class CasasComponent implements OnInit {
 
 
    //Servicio
-  constructor(private service: GetListCharacterService) { }
+  constructor(private service: GetListService) { }
 
   //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
   public getAllCharacter(value){
@@ -70,7 +70,7 @@ export class CasasComponent implements OnInit {
   ngOnInit() {
 
     //define como valor inicial a la casa de slytherin
-    this.getAllCharacter('slytherin');
+    this.getAllCharacter('/house/slytherin');
 
   }
 
