@@ -4,13 +4,12 @@
 <mat-form-field>
     <mat-label>Selecciona una Casa</mat-label>
     <mat-select [(value)]="selected" (selectionChange)=getChangeHouse($event)> 
-      <mat-option value="slytherin">Slytherin</mat-option>
-      <mat-option value="gryffindor">Gryffindor</mat-option>
-      <mat-option value="ravenclaw ">Ravenclaw</mat-option>
-      <mat-option value="hufflepuff">Hufflepuff</mat-option>
+      <mat-option value="/house/slytherin">Slytherin</mat-option>
+      <mat-option value="/house/gryffindor">Gryffindor</mat-option>
+      <mat-option value="/house/ravenclaw ">Ravenclaw</mat-option>
+      <mat-option value="/house/hufflepuff">Hufflepuff</mat-option>
     </mat-select>
 </mat-form-field>
-  <p>You selected: {{selected}}</p>
 
 </div>
 

@@ -1,0 +1,40 @@
+
+table {
+    width: 100%;
+    border-width: 0px;
+    align-items: center;
+    justify-items: center;
+   
+  }
+
+#table-input{
+
+    background-color:#fafafa;
+    border: 1;
+    outline: none;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    margin-bottom: 1rem ;
+}
+
+.table-container{
+
+    margin: 15rem 16rem auto 16rem;
+    height: 20vh ;
+
+}
+
+#image-table {
+
+    height: 10vh;
+    border-radius: 50%;
+    margin: auto 0 auto 0;
+}
+
+
+table tr, table td{
+
+ text-align: left;
+ padding-right: 0;
+}

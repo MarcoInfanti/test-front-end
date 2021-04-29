@@ -1,115 +1,91 @@
-<form [formGroup]="StudentForm">
+<mat-card class="example-card" id="form-card">
+
+    <form [formGroup]="StudentForm" id="from-content">
 
     <mat-form-field appearance="legacy">
         <mat-label>Name</mat-label>
-        <input formControlName="Name" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="name" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Species</mat-label>
-        <input formControlName="species" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Gender</mat-label>
-        <input formControlName="gender" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>House</mat-label>
-        <input formControlName="house" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="species" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field>
-        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker1" placeholder="Angular forms">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" #gender value="SeleccionGender">
+          <mat-option value="mujer">Mujer</mat-option>
+          <mat-option value="hombre">Hombre</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>House</mat-label>
+        <mat-select formControlName="house" #gender value="SeleccionHouse">
+          <mat-option value="slytherin">Slytherin</mat-option>
+          <mat-option value="gryffindor">Gryffindor</mat-option>
+          <mat-option value="ravenclaw ">Ravenclaw</mat-option>
+          <mat-option value="hufflepuff">Hufflepuff</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field>
+        <input formControlName="dateOfBirth" matInput [matDatepicker]="picker1" placeholder="Birth date" id="form-input">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Year</mat-label>
-        <input formControlName="yearOfBirth" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="yearOfBirth" matInput placeholder="Year of birth" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Ancestry</mat-label>
-        <input formControlName="ancestry" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="ancestry" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>eye Colour</mat-label>
-        <input formControlName="eyeColour" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="eyeColour" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
-
 
     <mat-form-field appearance="legacy">
         <mat-label>Hair Colour</mat-label>
-        <input formControlName="hairColour" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="hairColour" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Wood</mat-label>
-        <input formControlName="wood" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="wood" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Core</mat-label>
-        <input formControlName="core" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="core" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Length</mat-label>
-        <input formControlName="length" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="length" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Patronus</mat-label>
-        <input formControlName="patronus" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Howarts Student</mat-label>
-        <input formControlName="hogwartsStudent" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Howarts staff</mat-label>
-        <input formControlName="hogwartsStaff" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="patronus" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
         <mat-label>Actor</mat-label>
-        <input formControlName="actor" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+        <input formControlName="actor" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Alive</mat-label>
-        <input formControlName="alive" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Image</mat-label>
-        <input formControlName="image" matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
+    
+    <input id="upload-photo" #file type="file" accept='image/*' (change)="preview(file.files)" formControlName="image" />
+    <img  [src]="imgURL" *ngIf="imgURL">
 
 
-        <button (click)="SaveForm()" mat-raised-button color="primary"> Save </button>
+        <button [disabled]="StudentForm.invalid" (click)="createStudent()"  mat-raised-button color="primary" id="submit-button"> Save </button>
 
-  </form>
+</form>
+</mat-card>

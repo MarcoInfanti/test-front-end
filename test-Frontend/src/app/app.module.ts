@@ -19,8 +19,11 @@ import { MatInputModule  } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { FormsModule  } from '@angular/forms';
-import { DatepipePipe } from './datepipe.pipe';
+import { DatepipePipe } from './pipes/datepipe.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 
@@ -54,6 +57,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MatNativeDateModule,
     MatNativeDateModule,
     FormsModule,
+    MatCardModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

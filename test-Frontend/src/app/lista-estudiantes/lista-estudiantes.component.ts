@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
-import {GetListStudentsService} from '../get-list-students.service';
+import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
 
 @Component({
@@ -9,14 +9,14 @@ import {characterReport} from '../characterReport';
   styleUrls: ['./lista-estudiantes.component.css']
 })
 export class ListaEstudiantesComponent implements OnInit {
-
+    //inicialización de variables
   selectedValue ='';
   age=0;
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
   dataSourceStudents = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
 
-
+  //filtro y paginación
   @ViewChild(MatSort , {static: false}) sort: MatSort;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
@@ -25,6 +25,7 @@ export class ListaEstudiantesComponent implements OnInit {
     
 
   }
+    //Setea con un "-" en la tabla los campos que no tienen valor en la columna patronus
 
   getPatronus(patronus){
 
@@ -40,22 +41,23 @@ export class ListaEstudiantesComponent implements OnInit {
   }
 
 
+  //Servicio
+  constructor(private service: GetListService) { }
 
-  constructor(private service: GetListStudentsService) { }
-
-  public getAllStudents(){
+  //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
+  public getAllStudents(value){
     
     
-    let response = this.service.getStudents();
+    let response = this.service.getCharacters(value);
     response.subscribe(report=>this.dataSourceStudents.data=report as characterReport[])
-    console.log(this.dataSourceStudents)
+    
   }
 
  
-  
+
   ngOnInit() {
 
-    this.getAllStudents();
+    this.getAllStudents("/students");
 
   }
 
