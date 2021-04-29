@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
-import {GetListService} from '../get-list-character.service';
+import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
 
 @Component({

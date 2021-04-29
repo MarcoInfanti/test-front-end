@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
-import {GetListService} from '../get-list-character.service';
+import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
 import { getActiveOffset } from '@angular/material/datepicker/typings/multi-year-view';
 import { DataSource } from '@angular/cdk/collections';
@@ -19,6 +19,7 @@ export class CasasComponent implements OnInit {
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
   dataSource = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
+  
 
   //filtro y paginación
   @ViewChild(MatSort , {static: false}) sort: MatSort;
@@ -55,14 +56,13 @@ export class CasasComponent implements OnInit {
     
     let response = this.service.getCharacters(value);
     response.subscribe(report=>this.dataSource.data=report as characterReport[])
-    console.log(this.dataSource)
+   
   }
 
   //Evento que toma el valor de la etiqueta select del html
     getChangeHouse(event: MatSelectChange) {
 
     this.selectedValue = event.value;
-    console.log(this.selectedValue);
     this.getAllCharacter(this.selectedValue);
 
   }
