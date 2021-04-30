@@ -23,6 +23,8 @@ import { DatepipePipe } from './pipes/datepipe.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 
@@ -58,7 +60,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatNativeDateModule,
     FormsModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
