@@ -13,7 +13,7 @@ table {
     border-width: 0px;
     align-items: center;
     justify-items: center;
-   
+     
   }
 
 #table-input{
@@ -46,4 +46,10 @@ table tr, table td{
 
  text-align: left;
  padding-right: 0;
+}
+
+#select-id, table {
+
+    font-family: 'Harry Potter';
+
 }

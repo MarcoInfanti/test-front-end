@@ -80,9 +80,11 @@
         <mat-label>Actor</mat-label>
         <input formControlName="actor" matInput placeholder="Placeholder" id="form-input">
     </mat-form-field>
-    
-    <input id="upload-photo" #file type="file" accept='image/*' (change)="preview(file.files)" formControlName="image" />
+    <div>
+    <input  id="upload-photo" #file type="file" accept='image/*' (change)="preview(file.files)" formControlName="image" />
+    </div>
     <img  [src]="imgURL" *ngIf="imgURL">
+
 
 
         <button [disabled]="StudentForm.invalid" (click)="createStudent()"  mat-raised-button color="primary" id="submit-button"> Save </button>

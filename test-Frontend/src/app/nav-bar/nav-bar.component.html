@@ -1,16 +1,18 @@
 
 <mat-drawer-container class="example-container">
     <mat-drawer id="mat-menu" mode="side" opened>
-  
+        <img src="../../assets/Hogwarts-logo.png" id = "logo">
         <h2 id="nav-title">Escuela Hogwarts</h2>
-        <button class="nav-button" routerLink="/houses" mat-button>Casas</button>
-        <button class="nav-button" routerLink="/students" mat-button>Estudiantes</button>
-        <button class="nav-button" routerLink="/teachers" mat-button>Profesores</button>
-        <button class="nav-button" routerLink="/students-request" mat-button>Registrar Solicitud</button>
-        <button class="nav-button" routerLink="/view-request" mat-button>Ver solicitudes</button>
+        <mat-divider id="divider"></mat-divider>
+        <button class="nav-button" id="button" routerLink="/houses" mat-button>Casas</button>
+        <button class="nav-button" id="button" routerLink="/students" mat-button>Estudiantes</button>
+        <button class="nav-button" id="button" routerLink="/teachers" mat-button>Profesores</button>
+        <button class="nav-button" id="button" routerLink="/students-request" mat-button>Registrar Solicitud</button>
+        <button class="nav-button" id="button" routerLink="/view-request" mat-button>Ver solicitudes</button>
   
     </mat-drawer>
     <mat-drawer-content id="page-content">
+ 
       
       <router-outlet></router-outlet>
   

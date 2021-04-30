@@ -2,30 +2,32 @@
     width: 100vw;
     height: 100vh;
     background-color: rgb(240, 240, 240);
-
-    
   }
 
   .nav-button{
+
+    font-family: 'Harry Potter';
     width: 100%;
     height: 6vh;
+    font-size: 1.5rem;
+    margin-top: 1rem;
 
   }
 
 
-  .nav-button:hover {
-    width: 100%;
-    height: 6vh;
-    background-color: white;
+  .nav-button:hover{
+
+    background-color: rgba(128,128,128,0.3);
 
   }
 
   #nav-title {
 
-    margin-top: 4vh;
+    margin-top: 2vh;
     text-align: center;
     width: 100%;
     height: 6vh;
+    font-size: 2rem;
 
   }
 
@@ -36,20 +38,26 @@
 
   }
 
-  #page-content{
+  #logo{
 
-        background-image: url("src/assets/Hogwarts-logo.png") ;
-        background-repeat: no-repeat;
-        background-position: top right;  
-        background-size: 32vh;
-        background-position-y: 2rem;
-
+    width: 14vw;
+    margin-top: 1rem;
+    margin-right: 1rem;
   }
 
   #mat-menu {
 
-    background-color: rgb(255, 234, 178);
+    background-image: url("../../assets/hLbpQo.jpg");    
     width: 15vw;
+    -webkit-box-shadow: 16px 0px 16px rgba(128, 121, 121,0.5);
+    align-items: center;
+  }
 
+  #divider{
 
+    background-color: black;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 15%;
+    top:0;
   }

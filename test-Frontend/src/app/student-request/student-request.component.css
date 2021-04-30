@@ -1,8 +1,8 @@
 #form-card{
 
     width: 70vw;
-    height: 60vh;
-    margin: 16rem 16rem auto 8rem;
+    height: 85vh;
+    margin: 5rem 16rem auto 8rem;
     padding: auto 0 auto 0;
 
 }
@@ -33,16 +33,39 @@ align-items: center;
 position: absolute;
 width: 7vw;
 height: 5vh;
-top: 50vh;
+top: 74vh;
 left:60vw;
 
 }
 
 
-img, #upload-photo {
+img {
 
     position: relative;
     width: 100%;
-    left: 5vw;
+    left: 10vw;
+
+
+}
+
+#upload-photo{
+
+    position: relative;
+    width: 25vw;
+    left: 1vw;
+
+}
+
+
+input[type=file]::file-selector-button{
+
+    background-color: indigo;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border:0;
+    width: 15vh;
+    height: 5vh;
+    margin-top: 1rem;
 
 }
