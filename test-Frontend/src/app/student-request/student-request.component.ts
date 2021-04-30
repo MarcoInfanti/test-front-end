@@ -9,8 +9,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class StudentRequestComponent implements OnInit {
 
   public imagePath;
-  imgURL: any;
+  public imgURL: any;
   public message: string;
+  
 
   constructor(private formBuilder:FormBuilder){}
 
@@ -40,24 +41,26 @@ export class StudentRequestComponent implements OnInit {
   SaveForm(){
 
     //console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
-   
-
+    
       sessionStorage.setItem( "", JSON.stringify(this.StudentForm.value));
 
   }
 
 
- //permite la previsualizacion de la imagen
+  
+
+
+
+
+ //permite la previsualizacion de la imagen  
  public preview(files) {
   if (files.length === 0)
-    return;
-  
+    return;  
   var mimeType = files[0].type;
   if (mimeType.match(/image\/*/) == null) {
     this.message = "Only images are supported.";
     return;
   }
-
   var reader = new FileReader();
   this.imagePath = files;
   reader.readAsDataURL(files[0]); 
@@ -70,8 +73,10 @@ export class StudentRequestComponent implements OnInit {
 
 createStudent(){
 
-        var newStudent = new Object();
+
+        var newStudent = new Object();        
         newStudent =  this.StudentForm.value
+        console.log(this.imgURL)
         let student = []
 
 
@@ -81,12 +86,13 @@ createStudent(){
         }else{
          student=[];
         }
-        console.log(student);
         student.push(newStudent)   
         sessionStorage.setItem('student', JSON.stringify(student));
+
         var retrievedObject = sessionStorage.getItem('student');
         console.log('retrievedObject: ', JSON.parse(retrievedObject));
-    
+        this.StudentForm.reset();
+
 }
 
 

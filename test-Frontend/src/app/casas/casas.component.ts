@@ -27,9 +27,7 @@ export class CasasComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    
-
-  }
+    }
 
   //Setea con un "-" en la tabla los campos que no tienen valor en la columna patronus
   getPatronus(patronus){
