@@ -4,7 +4,7 @@
     <input id="table-input" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 
 
-    <table mat-table [dataSource]="dataSourceStudents" class="mat-elevation-z8" matSort matSortActive="name dateOfBirth">
+    <table mat-table [dataSource]="student" class="mat-elevation-z8" matSort matSortActive="name dateOfBirth">
 
         <!-- Position Column -->
         <ng-container matColumnDef="name">

@@ -13,14 +13,28 @@ import { StudentRequestComponent } from '../student-request/student-request.comp
 })
 export class RequestViewComponent implements OnInit {
 
-  
+  student=JSON.parse(sessionStorage.getItem("student"));
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
-  dataSource = new MatTableDataSource<characterReport>(this.ELEMENT_DATA)
+  dataSource = this.student;
 
   
   //Servicio
   constructor() { }
+
+  getPatronus(patronus){
+
+    if (patronus == "") {
+
+    return "-"
+  } else {
+
+
+    return patronus
+  }
+
+  }
+
 
   //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
 
@@ -28,8 +42,8 @@ export class RequestViewComponent implements OnInit {
 
     if (sessionStorage.getItem("student") !== null) {
     let student = JSON.parse(sessionStorage.getItem("student"));
-    console.log((student[6])) 
     
+   
     }
             
   }
