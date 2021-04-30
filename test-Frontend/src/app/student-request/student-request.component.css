@@ -12,6 +12,7 @@
 margin: 2rem auto 2rem auto;
 display:grid;
 grid-template-columns: repeat(auto-fit, minmax(10rem, 6fr));
+grid-template-columns: repeat(auto-fit, minmax(10rem, 6fr));
 grid-gap: 1rem;
 width: 90%;
 height: 100%;
