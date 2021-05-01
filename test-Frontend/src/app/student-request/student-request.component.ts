@@ -96,8 +96,8 @@ createStudent(){
     student = this.saveImage(student)
     //guardo el array en el session storage
     sessionStorage.setItem('student', JSON.stringify(student));
-    var retrievedObject = sessionStorage.getItem('student');
-    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    //var retrievedObject = sessionStorage.getItem('student');
+    //console.log('retrievedObject: ', JSON.parse(retrievedObject));
     //limpio el formulario
     this.StudentForm.reset();
 
