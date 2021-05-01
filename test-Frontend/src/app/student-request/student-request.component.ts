@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
+
 
 @Component({
   selector: 'app-student-request',
@@ -13,7 +15,6 @@ export class StudentRequestComponent implements OnInit {
   public message: string;
   fileHolder : File | null
   
-
   constructor(private formBuilder:FormBuilder){}
 
 
@@ -39,6 +40,8 @@ export class StudentRequestComponent implements OnInit {
     
   })
 
+  
+
   SaveForm(){
 
     //console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
@@ -48,9 +51,12 @@ export class StudentRequestComponent implements OnInit {
   }
 
 
-  
 
+  applyFilter(filterValue: string) {
+    this.dataSourceTeacher.filter = filterValue.trim().toLowerCase();
+    
 
+  }
 
 
  //permite la previsualizacion de la imagen  

@@ -1,9 +1,10 @@
 import { DataSource } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
 import { $ } from 'protractor';
 import {characterReport} from '../characterReport';
 import { StudentRequestComponent } from '../student-request/student-request.component';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -16,10 +17,13 @@ export class RequestViewComponent implements OnInit {
   student=JSON.parse(sessionStorage.getItem("student"));
   ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
-  dataSource = this.student;
+  dataSourceRequest = new MatTableDataSource<characterReport>(this.student);
 
   
-  //Servicio
+  @ViewChild(MatSort , {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+
+
   constructor() { }
 
   getPatronus(patronus){
@@ -35,15 +39,17 @@ export class RequestViewComponent implements OnInit {
 
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSourceRequest.filter = filterValue.trim().toLowerCase();
+  }
+
 
   //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
 
   metodo(){
 
     if (sessionStorage.getItem("student") !== null) {
-    let student = JSON.parse(sessionStorage.getItem("student"));
-    
-   
+    let student = JSON.parse(sessionStorage.getItem("student"));   
     }
             
   }
@@ -54,4 +60,12 @@ export class RequestViewComponent implements OnInit {
     this.metodo()
   }
   
+
+  ngAfterViewInit() {
+
+    this.dataSourceRequest.paginator = this.paginator;
+    this.dataSourceRequest.sort = this.sort;
+
+  }
+
 }
