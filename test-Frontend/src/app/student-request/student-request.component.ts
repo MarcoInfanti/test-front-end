@@ -11,6 +11,7 @@ export class StudentRequestComponent implements OnInit {
   public imagePath;
   public imgURL: any;
   public message: string;
+  fileHolder : File | null
   
 
   constructor(private formBuilder:FormBuilder){}
@@ -63,10 +64,12 @@ export class StudentRequestComponent implements OnInit {
   }
   var reader = new FileReader();
   this.imagePath = files;
+  this.fileHolder = files[0]
   reader.readAsDataURL(files[0]); 
   reader.onload = (_event) => { 
     this.imgURL = reader.result; 
   }
+ 
 }
   
 
@@ -78,21 +81,27 @@ createStudent(){
         newStudent =  this.StudentForm.value
         console.log(this.imgURL)
         let student = []
-
-
+        //comprueba que exista un array en el session sotorage
         if(sessionStorage.student)
         {
          student= JSON.parse(sessionStorage.getItem('student'));
+         //si no existe crea uno para guardar los datos
         }else{
          student=[];
         }
+        //guardo lel nuevo estudiante en el array
         student.push(newStudent)   
+        //guardo la imagen en el array
+        let valor = student.length
+        let imagen = this.imgURL
+        student[valor -1].image = imagen
+        //guardo el array en el session storage
         sessionStorage.setItem('student', JSON.stringify(student));
-
         var retrievedObject = sessionStorage.getItem('student');
         console.log('retrievedObject: ', JSON.parse(retrievedObject));
+        //limpio el formulario
         this.StudentForm.reset();
-
+        
 }
 
 
