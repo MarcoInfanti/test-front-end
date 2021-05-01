@@ -24,6 +24,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
+import { DateSlashPipe } from './pipes/date-slash.pipe';
+
 
 
 
@@ -39,6 +41,8 @@ import {MatDividerModule} from '@angular/material/divider';
     RequestViewComponent,
     DatepipePipe,
     NavBarComponent,
+    DateSlashPipe,
+    
 
   ],
   imports: [
@@ -61,7 +65,8 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatCardModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
