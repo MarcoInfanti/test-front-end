@@ -73,38 +73,46 @@ export class StudentRequestComponent implements OnInit {
 }
   
 
-
 createStudent(){
 
+  var newStudent = new Object();        
+  newStudent =  this.StudentForm.value
+  let student = []
+  if(sessionStorage.student)
+    {
 
-        var newStudent = new Object();        
-        newStudent =  this.StudentForm.value
-        console.log(this.imgURL)
-        let student = []
-        //comprueba que exista un array en el session sotorage
-        if(sessionStorage.student)
-        {
-         student= JSON.parse(sessionStorage.getItem('student'));
-         //si no existe crea uno para guardar los datos
-        }else{
-         student=[];
-        }
-        //guardo lel nuevo estudiante en el array
-        student.push(newStudent)   
-        //guardo la imagen en el array
-        let valor = student.length
-        let imagen = this.imgURL
-        student[valor -1].image = imagen
-        //guardo el array en el session storage
-        sessionStorage.setItem('student', JSON.stringify(student));
-        var retrievedObject = sessionStorage.getItem('student');
-        console.log('retrievedObject: ', JSON.parse(retrievedObject));
-        //limpio el formulario
-        this.StudentForm.reset();
-        
+      student= JSON.parse(sessionStorage.getItem('student'));
+      //si no existe crea uno para guardar los datos
+
+    }else{
+
+      student=[];
+
+    }
+
+    student.push(newStudent)   
+    student = this.saveImage(student)
+    //guardo el array en el session storage
+    sessionStorage.setItem('student', JSON.stringify(student));
+    var retrievedObject = sessionStorage.getItem('student');
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    //limpio el formulario
+    this.StudentForm.reset();
+
+
 }
 
 
+saveImage(array){
+
+    //guardo la imagen en el array
+    let valor = array.length
+    let imagen = this.imgURL
+    array[valor -1].image = imagen
+    return array
+
+
+}
 
 
  ngOnInit(){
