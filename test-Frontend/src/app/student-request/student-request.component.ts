@@ -108,11 +108,20 @@ createStudent(){
 saveImage(array){
 
     //guardo la imagen en el array
+    if(array.length != null){
     let valor = array.length
     let imagen = this.imgURL
     array[valor -1].image = imagen
     return array
 
+  }else{
+
+    let valor = 0
+    let imagen = this.imgURL
+    array[valor -1].image = imagen
+    return array
+
+  }
 
 }
 
