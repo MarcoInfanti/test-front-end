@@ -40,7 +40,12 @@ export class RequestViewComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSourceRequest.filter = filterValue.trim().toLowerCase();
+    if(this.dataSourceRequest != null){
+
+      this.dataSourceRequest.filter = filterValue.trim().toLowerCase();
+
+    }
+
   }
 
 
