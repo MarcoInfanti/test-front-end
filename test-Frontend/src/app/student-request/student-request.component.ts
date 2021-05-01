@@ -52,11 +52,7 @@ export class StudentRequestComponent implements OnInit {
 
 
 
-  applyFilter(filterValue: string) {
-    this.dataSourceTeacher.filter = filterValue.trim().toLowerCase();
-    
 
-  }
 
 
  //permite la previsualizacion de la imagen  
