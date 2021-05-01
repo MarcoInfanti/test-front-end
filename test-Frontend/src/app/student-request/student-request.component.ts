@@ -96,8 +96,8 @@ createStudent(){
     student = this.saveImage(student)
     //guardo el array en el session storage
     sessionStorage.setItem('student', JSON.stringify(student));
-    var retrievedObject = sessionStorage.getItem('student');
-    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    //var retrievedObject = sessionStorage.getItem('student');
+    //console.log('retrievedObject: ', JSON.parse(retrievedObject));
     //limpio el formulario
     this.StudentForm.reset();
 
@@ -108,11 +108,20 @@ createStudent(){
 saveImage(array){
 
     //guardo la imagen en el array
+    if(array.length != null){
     let valor = array.length
     let imagen = this.imgURL
     array[valor -1].image = imagen
     return array
 
+  }else{
+
+    let valor = 0
+    let imagen = this.imgURL
+    array[valor -1].image = imagen
+    return array
+
+  }
 
 }
 
