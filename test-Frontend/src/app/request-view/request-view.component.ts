@@ -15,10 +15,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class RequestViewComponent implements OnInit {
 
-  student=JSON.parse(sessionStorage.getItem("student"));
-  ELEMENT_DATA : any[] = [];
   displayedColumns: string[] = ['name','patronus', 'dateOfBirth' , 'image'];
-  dataSourceRequest = new MatTableDataSource<characterReport>(this.student);
+  dataSourceRequest = new MatTableDataSource<characterReport>(this.metodo());
 
   
   @ViewChild(MatSort , {static: false}) sort: MatSort;
@@ -42,6 +40,7 @@ export class RequestViewComponent implements OnInit {
 
   applyFilter(filterValue: string) {
 
+    
       this.dataSourceRequest.filter = filterValue.trim().toLowerCase();
 
   }
@@ -51,10 +50,15 @@ export class RequestViewComponent implements OnInit {
 
   metodo(){
 
-    if (sessionStorage.getItem("student") !== null) {
-    let student = JSON.parse(sessionStorage.getItem("student"));   
+    if (sessionStorage.getItem("student") != null) {
+      return JSON.parse(sessionStorage.getItem("student"));  
+      
+    } else {
+
+      return []
+
     }
-            
+ 
   }
 
   
