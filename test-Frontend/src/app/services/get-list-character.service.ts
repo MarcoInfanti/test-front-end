@@ -8,10 +8,11 @@ import { characterReport } from '../characterReport';
 
 //Servicio API 
 export class GetListService {
+  
+  private url = "http://hp-api.herokuapp.com/api/characters"
 
   constructor(private http:HttpClient) { }
   
-  url :string = "http://hp-api.herokuapp.com/api/characters"
 
   
   //metodo que recibe como parametro la casa "House" para realizar la consulta 

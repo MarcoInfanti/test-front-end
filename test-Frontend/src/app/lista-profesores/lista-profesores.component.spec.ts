@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatPaginatorModule, MatTableModule } from '@angular/material';
+import { DatepipePipe } from '../pipes/datepipe.pipe';
 
 import { ListaProfesoresComponent } from './lista-profesores.component';
 
@@ -8,7 +10,8 @@ describe('ListaProfesoresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaProfesoresComponent ]
+      imports: [MatTableModule, MatPaginatorModule],
+      declarations: [ ListaProfesoresComponent, DatepipePipe ],
     })
     .compileComponents();
   }));

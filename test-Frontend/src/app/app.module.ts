@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTableModule} from '@angular/material/table';
-import {HttpClientModule} from '@angular/common/http';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule} from '@angular/common/http';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ReactiveFormsModule }  from '@angular/forms';
 import { StudentRequestComponent } from './student-request/student-request.component';
@@ -21,10 +21,12 @@ import { MatNativeDateModule } from '@angular/material';
 import { FormsModule  } from '@angular/forms';
 import { DatepipePipe } from './pipes/datepipe.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule} from '@angular/material/radio';
+import { MatDividerModule} from '@angular/material/divider';
 import { DateSlashPipe } from './pipes/date-slash.pipe';
+import { GetListService } from './services/get-list-character.service';
+import { CdkTableModule } from '@angular/cdk/table';
 
 
 
@@ -61,14 +63,15 @@ import { DateSlashPipe } from './pipes/date-slash.pipe';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatNativeDateModule,
     FormsModule,
     MatCardModule,
     MatRadioModule,
     MatDividerModule,
+    CdkTableModule
+    
     
   ],
-  providers: [],
+  providers: [GetListService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

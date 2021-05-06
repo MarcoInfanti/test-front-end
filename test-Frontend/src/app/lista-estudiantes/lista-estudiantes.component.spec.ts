@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListaEstudiantesComponent } from './lista-estudiantes.component';
+import { DatepipePipe } from '../pipes/datepipe.pipe';
+import { MatPaginatorModule, MatTableModule } from '@angular/material';
 
 describe('ListaEstudiantesComponent', () => {
   let component: ListaEstudiantesComponent;
@@ -8,10 +10,12 @@ describe('ListaEstudiantesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaEstudiantesComponent ]
+      imports: [MatTableModule, MatPaginatorModule, ],
+      declarations: [ ListaEstudiantesComponent, DatepipePipe ],
     })
     .compileComponents();
   }));
+
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListaEstudiantesComponent);

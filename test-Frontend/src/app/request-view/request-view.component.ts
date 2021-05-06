@@ -10,7 +10,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-request-view',
   templateUrl: './request-view.component.html',
-  styleUrls: ['./request-view.component.css']
+  styleUrls: ['./request-view.component.css'],
+
 })
 export class RequestViewComponent implements OnInit {
 
@@ -40,11 +41,8 @@ export class RequestViewComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    if(this.dataSourceRequest != null){
 
       this.dataSourceRequest.filter = filterValue.trim().toLowerCase();
-
-    }
 
   }
 

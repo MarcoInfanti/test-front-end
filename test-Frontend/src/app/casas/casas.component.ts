@@ -2,13 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
 import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
-import { getActiveOffset } from '@angular/material/datepicker/typings/multi-year-view';
-import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-casas',
   templateUrl: './casas.component.html',
-  styleUrls: ['./casas.component.css']
+  styleUrls: ['./casas.component.css'],
+  providers: [GetListService]
+
 })
 
 export class CasasComponent implements OnInit {
