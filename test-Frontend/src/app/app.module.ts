@@ -71,7 +71,7 @@ import { CdkTableModule } from '@angular/cdk/table';
     
     
   ],
-  providers: [GetListService, HttpClientModule],
+  providers: [GetListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

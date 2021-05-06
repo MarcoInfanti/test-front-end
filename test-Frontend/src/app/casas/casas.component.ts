@@ -3,6 +3,7 @@ import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@an
 import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
 
+
 @Component({
   selector: 'app-casas',
   templateUrl: './casas.component.html',
@@ -10,6 +11,7 @@ import {characterReport} from '../characterReport';
   providers: [GetListService]
 
 })
+
 
 export class CasasComponent implements OnInit {
   //inicialización de variables
@@ -50,7 +52,7 @@ export class CasasComponent implements OnInit {
 
   //metodo que llama al API, recibe como parametro (value) la casa y trae a los actores que pertenecen a ella
   public getAllCharacter(value){
-    
+     
     
     let response = this.service.getCharacters(value);
     response.subscribe(report=>this.dataSource.data=report as characterReport[])
