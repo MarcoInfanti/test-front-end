@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatPaginatorModule, MatTableModule } from '@angular/material';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DateSlashPipe } from '../pipes/date-slash.pipe';
 
 import { RequestViewComponent } from './request-view.component';
 
@@ -8,7 +11,8 @@ describe('RequestViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestViewComponent ]
+      imports: [MatPaginatorModule, MatTableModule, BrowserAnimationsModule, NoopAnimationsModule,],
+      declarations: [ RequestViewComponent, DateSlashPipe ],
     })
     .compileComponents();
   }));
@@ -23,3 +27,6 @@ describe('RequestViewComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+ 

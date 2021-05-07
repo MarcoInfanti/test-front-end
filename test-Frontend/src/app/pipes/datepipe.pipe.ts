@@ -24,7 +24,8 @@ export class DatepipePipe implements PipeTransform {
     } else if (year) {
 
       var currentYear = new Date().getFullYear()
-      return currentYear - year
+      this.age = currentYear - year;
+      return  this.age
 
 
   } else {

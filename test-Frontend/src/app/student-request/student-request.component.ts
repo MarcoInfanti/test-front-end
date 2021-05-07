@@ -6,9 +6,10 @@ import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@an
 @Component({
   selector: 'app-student-request',
   templateUrl: './student-request.component.html',
-  styleUrls: ['./student-request.component.css']
+  styleUrls: ['./student-request.component.css'],
 })
 export class StudentRequestComponent implements OnInit {
+
 
   public imagePath;
   public imgURL: any;
@@ -41,20 +42,6 @@ export class StudentRequestComponent implements OnInit {
   })
 
   
-
-  SaveForm(){
-
-    //console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
-    
-      sessionStorage.setItem( "", JSON.stringify(this.StudentForm.value));
-
-  }
-
-
-
-
-
-
  //permite la previsualizacion de la imagen  
  public preview(files) {
   if (files.length === 0)

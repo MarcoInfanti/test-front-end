@@ -1,12 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort,  MatTableDataSource } from '@angular/material';
 import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
+import { DataSource } from '@angular/cdk/table';
+
 
 @Component({
   selector: 'app-lista-estudiantes',
   templateUrl: './lista-estudiantes.component.html',
-  styleUrls: ['./lista-estudiantes.component.css']
+  styleUrls: ['./lista-estudiantes.component.css'],
+  providers: [GetListService]
+
 })
 export class ListaEstudiantesComponent implements OnInit {
     //inicialización de variables

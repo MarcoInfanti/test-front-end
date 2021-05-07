@@ -1,16 +1,28 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { async, ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
+import { MatPaginatorModule, MatTableModule } from '@angular/material';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DatepipePipe } from '../pipes/datepipe.pipe';
+import { GetListService } from '../services/get-list-character.service';
 
 import { ListaProfesoresComponent } from './lista-profesores.component';
 
 describe('ListaProfesoresComponent', () => {
   let component: ListaProfesoresComponent;
   let fixture: ComponentFixture<ListaProfesoresComponent>;
+  let http : HttpClient;
+  let getlist : GetListService;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaProfesoresComponent ]
+      imports: [MatTableModule, MatPaginatorModule, BrowserAnimationsModule, NoopAnimationsModule, HttpClientTestingModule],
+      declarations: [ ListaProfesoresComponent, DatepipePipe ],
+      
     })
     .compileComponents();
+    getlist = new GetListService(http);
   }));
 
   beforeEach(() => {
@@ -22,4 +34,21 @@ describe('ListaProfesoresComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('empty patronus changes to -',() => {
+
+    let value = component.getPatronus('')
+    expect(value).toEqual('-')
+
+
+  })
+
+  it('value of patronus returns',() => {
+
+    let value = component.getPatronus('wolf')
+    expect(value).toEqual('wolf')
+
+
+  })
 });

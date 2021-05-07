@@ -2,11 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@angular/material';
 import {GetListService} from '../services/get-list-character.service';
 import {characterReport} from '../characterReport';
+import { DataSource } from '@angular/cdk/table';
+
 
 @Component({
   selector: 'app-lista-profesores',
   templateUrl: './lista-profesores.component.html',
-  styleUrls: ['./lista-profesores.component.css']
+  styleUrls: ['./lista-profesores.component.css'],
+  providers: [GetListService]
+
 })
 export class ListaProfesoresComponent implements OnInit {
   //inicialización de variables
@@ -24,7 +28,6 @@ export class ListaProfesoresComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSourceTeacher.filter = filterValue.trim().toLowerCase();
     
-
   }
     //Setea con un "-" en la tabla los campos que no tienen valor en la columna patronus
 
