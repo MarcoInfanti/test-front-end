@@ -26,6 +26,35 @@ describe('RequestViewComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('empty patronus changes to -',() => {
+
+    let value = component.getPatronus('')
+    expect(value).toEqual('-')
+
+
+  })
+
+  it('value of patronus returns',() => {
+
+    let value = component.getPatronus('wolf')
+    expect(value).toEqual('wolf')
+
+
+  })
+
+
+  it('session storage is empty return []',() => {
+
+    sessionStorage.clear()
+    let array = new Array()
+    let value =component.metodo()
+    expect(value).toEqual(array)
+
+
+  })
+
+
 });
 
 
