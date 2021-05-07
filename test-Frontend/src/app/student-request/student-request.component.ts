@@ -10,6 +10,7 @@ import { MatPaginator, MatSelectChange, MatSort,  MatTableDataSource } from '@an
 })
 export class StudentRequestComponent implements OnInit {
 
+
   public imagePath;
   public imgURL: any;
   public message: string;
@@ -41,20 +42,6 @@ export class StudentRequestComponent implements OnInit {
   })
 
   
-
-  SaveForm(){
-
-    //console.log(' La informacion del FormBuilder es: ', this.StudentForm.value);
-    
-      sessionStorage.setItem( "", JSON.stringify(this.StudentForm.value));
-
-  }
-
-
-
-
-
-
  //permite la previsualizacion de la imagen  
  public preview(files) {
   if (files.length === 0)
