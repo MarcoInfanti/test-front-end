@@ -1,7 +1,8 @@
+import { DataSource } from '@angular/cdk/collections';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
-import { MatPaginatorModule, MatSelectModule, MatTableDataSource, MatTableModule } from '@angular/material';
+import { MatPaginatorModule, MatSelectChange, MatSelectModule, MatTableDataSource, MatTableModule } from '@angular/material';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepipePipe } from '../pipes/datepipe.pipe';
 import { GetListService } from '../services/get-list-character.service';
@@ -52,5 +53,16 @@ describe('CasasComponent', () => {
 
 
   })
+
+ /* it('should filter the dataSource', async(() => {
+
+    expect(component.dataSource.filter).toBe('');
+    console.log(DataSource.length)
+    component.dataSource.filter = 'Malfoy'.trim().toLowerCase();
+
+    expect(component.dataSource.filteredData.length).toBe(0);
+    expect(component.dataSource.filteredData.length).toBe(2);
+   
+  }));*/
 
 });

@@ -55,7 +55,7 @@ export class CasasComponent implements OnInit {
      
     
     let response = this.service.getCharacters(value);
-    response.subscribe(report=>this.dataSource.data=report as characterReport[])
+    response.subscribe( report => this.dataSource.data = report as characterReport[])
    
   }
 
