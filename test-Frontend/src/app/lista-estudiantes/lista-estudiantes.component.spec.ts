@@ -12,7 +12,7 @@ describe('ListaEstudiantesComponent', () => {
   let component: ListaEstudiantesComponent;
   let fixture: ComponentFixture<ListaEstudiantesComponent>;
   let http : HttpClient;
-  let getlist = new  GetListService(http);
+  let getlist :  GetListService;
 
 
   beforeEach(async(() => {
@@ -21,6 +21,7 @@ describe('ListaEstudiantesComponent', () => {
       declarations: [ ListaEstudiantesComponent, DatepipePipe ],
     })
     .compileComponents();
+    getlist = new GetListService(http);
   }));
 
 

@@ -12,7 +12,7 @@ describe('ListaProfesoresComponent', () => {
   let component: ListaProfesoresComponent;
   let fixture: ComponentFixture<ListaProfesoresComponent>;
   let http : HttpClient;
-  let getlist = new  GetListService(http);
+  let getlist : GetListService;
 
 
   beforeEach(async(() => {
@@ -22,6 +22,7 @@ describe('ListaProfesoresComponent', () => {
       
     })
     .compileComponents();
+    getlist = new GetListService(http);
   }));
 
   beforeEach(() => {

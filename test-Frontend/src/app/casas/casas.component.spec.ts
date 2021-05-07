@@ -12,7 +12,7 @@ describe('CasasComponent', () => {
   let component: CasasComponent;
   let fixture: ComponentFixture<CasasComponent>;
   let http : HttpClient;
-  let getlist = new  GetListService(http);
+  let getlist: GetListService;
 
 
   beforeEach(async(() => {
@@ -22,6 +22,8 @@ describe('CasasComponent', () => {
       providers:[GetListService]
     })
     .compileComponents();
+
+    getlist = new GetListService(http);
   }));
 
   beforeEach(() => {
