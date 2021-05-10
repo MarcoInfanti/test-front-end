@@ -44,19 +44,14 @@ export class StudentRequestComponent implements OnInit {
   
  //permite la previsualizacion de la imagen  
  public preview(files) {
-  if (files.length === 0)
-    return;  
-  var mimeType = files[0].type;
-  if (mimeType.match(/image\/*/) == null) {
-    this.message = "Only images are supported.";
-    return;
-  }
+
   var reader = new FileReader();
   this.imagePath = files;
   this.fileHolder = files[0]
   reader.readAsDataURL(files[0]); 
   reader.onload = (_event) => { 
     this.imgURL = reader.result; 
+    console.log(this.imgURL);
   }
  
 }
@@ -95,20 +90,10 @@ createStudent(){
 saveImage(array){
 
     //guardo la imagen en el array
-    if(array.length != null){
     let valor = array.length
     let imagen = this.imgURL
     array[valor -1].image = imagen
     return array
-
-  }else{
-
-    let valor = 0
-    let imagen = this.imgURL
-    array[valor -1].image = imagen
-    return array
-
-  }
 
 }
 

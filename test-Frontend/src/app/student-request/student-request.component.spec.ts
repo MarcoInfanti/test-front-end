@@ -91,14 +91,28 @@ describe('StudentRequestComponent', () => {
     component.imgURL=""
 
     let values = component.StudentForm.value
-
     component.createStudent();
-    let saved = sessionStorage.getItem('student').replace("[", "")
-    saved = saved.replace("]","")
 
-    expect(values).toEqual(JSON.parse(saved))
+    name.setValue('ina');
+    values = component.StudentForm.value
+    component.createStudent();
+
+    let saved = sessionStorage.getItem('student')
+
+    console.log(saved)
+
+    console.log(saved)
+    expect(values).toEqual(JSON.parse(saved)[1])
 
   });
 
+
+  it('preview file not empty' ,() => {
+
+    let image = component.imgURL
+
+
+  
+  });
 
 });

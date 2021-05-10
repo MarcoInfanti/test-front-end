@@ -12,10 +12,6 @@ export class NavBarComponent implements OnInit {
 
   color = "red"
   
-  changeColor(_this){
-  
-  }
-
 
   ngOnInit() {
   }
